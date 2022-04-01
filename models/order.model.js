@@ -25,7 +25,7 @@ const Order = sequelize.define('order', {
 
   totalPrice: {
     type: DataTypes.FLOAT,
-    allowNull: false 
+    allowNull: false
   },
 
   status: {

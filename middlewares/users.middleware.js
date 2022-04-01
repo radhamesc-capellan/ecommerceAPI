@@ -1,6 +1,7 @@
 // Models
 const { Product } = require('../models/product.model');
 const { User } = require('../models/user.model');
+const { Order } =require('../models/order.model');
 
 // Utils
 const { AppError } = require('../utils/appError');

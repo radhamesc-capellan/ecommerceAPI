@@ -1,6 +1,6 @@
 const express = require('express');
 
-// Controller
+// controller
 const {
   addProductToCart,
   getUserCart,
@@ -9,7 +9,9 @@ const {
   purchaseCart
 } = require('../controllers/cart.controller');
 
-// Middleware
+// middleware
+
+//express-validator
 const { validateSession } = require('../middlewares/auth.middleware');
 const {
   addProductToCartValidation,
@@ -29,7 +31,7 @@ router.post(
   addProductToCart
 );
 
-router.patch('/update-product', updateCartProduct);
+router.patch('/update-cart', updateCartProduct);
 
 router.post('/purchase', purchaseCart);
 

@@ -1,3 +1,4 @@
+//protect with JWT
 const jwt = require('jsonwebtoken');
 const { promisify } = require('utils');
 

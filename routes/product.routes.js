@@ -1,6 +1,6 @@
 const express = require('express');
 
-// Controller
+// controller
 const {
   getAllProducts,
   createProduct,
@@ -9,12 +9,13 @@ const {
   disableProduct
 } = require('../controllers/products.controller');
 
-// Middlewares
+// middlewares
 const { validateSession } = require('../middlewares/auth.middleware');
 const {
   productExists,
   productOwner
 } = require('../middlewares/products.middleware');
+//express-validator
 const {
   createProductValidations,
   validateResult

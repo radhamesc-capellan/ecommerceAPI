@@ -1,10 +1,12 @@
 const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
+//protect with JWT
 const jwt = require('jsonwebtoken');
 
 // models
 const { User } = require('../models/user.model');
 const { Product } = require('../models/product.model');
+const { Order } = require('../models/order.model');
 
 // utils
 const { catchAsync } = require('../utils/catchAsync');
@@ -32,13 +34,9 @@ exports.loginUser = catchAsync(async (req, res, next) => {
   }
 
   // create JWT
-  const token = await jwt.sign(
-    { id: user.id },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: process.env.JWT_EXPIRES_IN
-    }
-  );
+  const token = await jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN
+  });
 
   res.status(200).json({
     status: 'success',
@@ -110,4 +108,12 @@ exports.getUsersProducts = catchAsync(async (req, res, next) => {
     status: 'success',
     data: { products }
   });
+});
+
+exports.getAllOrderUser = catchAsync(async (req, res, next) => {
+  const order = await Order.findAll({});
+});
+
+exports.getOrderUserById = catchAsync(async (req, res, next) => {
+  const order = await Order.findOne({});
 });

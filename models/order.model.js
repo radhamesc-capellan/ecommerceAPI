@@ -16,10 +16,11 @@ const Order = sequelize.define('order', {
 
   cartId: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
+    unique: true
   },
   issuedAt: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(255),
     allowNull: false
   },
 

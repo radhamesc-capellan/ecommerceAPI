@@ -2,11 +2,16 @@ const { app } = require('./app');
 
 //Utils
 const { sequelize } = require('./utils/database');
+const { initModels } = require('./utils/initModels');
 
+// Database auth0
 sequelize
   .authenticate()
   .then(() => console.log('Database authenticated'))
   .catch((err) => console.log(err));
+
+  // Init relations
+initModels();
 
 // Database synced with models' relations
 sequelize

@@ -9,9 +9,9 @@ const { Product } = require('../models/product.model');
 const { Order } = require('../models/order.model');
 
 // utils
-const { catchAsync } = require('../utils/catchAsync');
-const { AppError } = require('../utils/appError');
-const { filterObj } = require('../utils/filterObj');
+const { catchAsync } = require('../util/catchAsync');
+const { AppError } = require('../util/appError');
+const { filterObj } = require('../util/filterObj');
 
 dotenv.config({ path: './config.env' });
 

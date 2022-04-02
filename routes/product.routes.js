@@ -7,7 +7,7 @@ const {
   getProductById,
   updateProduct,
   disableProduct
-} = require('../controllers/products.controller');
+} = require('../controllers/product.controller');
 
 // middlewares
 const { validateSession } = require('../middlewares/auth.middleware');

@@ -2,7 +2,7 @@
   "name": "ecommerce_project",
   "version": "1.0.0",
   "description": "This is a Final Project from academlo NodeJS Module",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node server.js",
     "start:dev": "nodemon server.js"

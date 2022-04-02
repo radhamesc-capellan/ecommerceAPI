@@ -1,8 +1,8 @@
 const { app } = require('./app');
 
 //Utils
-const { sequelize } = require('./utils/database');
-const { initModels } = require('./utils/initModels');
+const { sequelize } = require('./util/database');
+const { initModels } = require('./util/initModels');
 
 // Database auth0
 sequelize

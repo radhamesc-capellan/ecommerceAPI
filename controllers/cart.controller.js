@@ -5,8 +5,9 @@ const { ProductInCart } = require('../models/productInCart.model');
 const { Order } = require('../models/order.model');
 
 //utils
-const { catchAsync } = require('../utils/catchAsync');
-const { AppError } = require('../utils/appError');
+const { catchAsync } = require('../util/catchAsync');
+const { AppError } = require('../util/appError');
+const { filterObj } = require('../util/filterObj');
 
 //asingnament cart to user
 

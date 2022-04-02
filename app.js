@@ -4,8 +4,8 @@ const express = require('express');
 const { globalErrorHandler } = require('./controllers/error.controller');
 
 // Routers
-const { usersRouter } = require('./routes/users.routes');
-const { productsRouter } = require('./routes/products.routes');
+const { usersRouter } = require('./routes/user.routes');
+const { productsRouter } = require('./routes/product.routes');
 const { cartRouter } = require('./routes/cart.routes');
 
 const app = express();

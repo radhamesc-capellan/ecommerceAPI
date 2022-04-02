@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { sequelize } = require('../utils/database');
+const { sequelize } = require('../util/database');
 
 const Product = sequelize.define('product', {
   id: {

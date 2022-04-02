@@ -2,8 +2,8 @@ const { Product } = require('../models/product.model');
 const { User } = require('../models/user.model');
 
 // Utils
-const { catchAsync } = require('../utils/catchAsync');
-const { filterObj } = require('../utils/filterObj');
+const { catchAsync } = require('../util/catchAsync');
+const { filterObj } = require('../util/filterObj');
 
 //get all available products
 

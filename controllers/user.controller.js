@@ -111,9 +111,38 @@ exports.getUsersProducts = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllOrderUser = catchAsync(async (req, res, next) => {
-  const order = await Order.findAll({});
+  const { currentUser } = req;
+
+  const order = await Order.findAll({
+    where: { userId: currentUser.id }
+  });
+  res.status(200).json({
+    status: 'success',
+    data: { orders }
+  });
 });
 
 exports.getOrderUserById = catchAsync(async (req, res, next) => {
-  const order = await Order.findOne({});
+  const { id } = req.params;
+
+  const order = await Order.findOne({
+    where: { id },
+    include: [
+      {
+        model: Cart,
+        include: [
+          { model: Product, through: { where: { status: 'purchased' } } }
+        ]
+      }
+    ]
+  });
+
+  if (!order) {
+    return next(new AppError(404, 'No Order found that Id'));
+  }
+
+  res.status(200).json({
+    status: 'success',
+    data: { order }
+  });
 });

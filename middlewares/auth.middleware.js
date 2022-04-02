@@ -1,6 +1,6 @@
 //protect with JWT
 const jwt = require('jsonwebtoken');
-const { promisify } = require('utils');
+const { promisify } = require('util');
 
 // models
 const { User } = require('../models/user.model');

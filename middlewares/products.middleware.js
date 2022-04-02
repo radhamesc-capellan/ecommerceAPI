@@ -10,7 +10,7 @@ exports.productExists = catchAsync(async (req, res, next) => {
   const { id } = req.params;
 
   const product = await Product.findOne({
-    where: { status: 'active', id },
+    where: { status: 'active', id: id || productId },
     include: [{ model: User, attributes: { exclude: ['password'] } }]
   });
 

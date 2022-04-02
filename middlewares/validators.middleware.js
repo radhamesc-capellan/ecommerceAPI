@@ -2,8 +2,8 @@
 const { body, validationResult } = require('express-validator');
 
 // utils
-const { AppError } = require('../utils/appError');
-const { catchAsync } = require('../utils/catchAsync');
+const { AppError } = require('../util/appError');
+const { catchAsync } = require('../util/catchAsync');
 
 // Products validations
 exports.createProductValidations = [

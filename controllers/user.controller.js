@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const { User } = require('../models/user.model');
 const { Product } = require('../models/product.model');
 const { Order } = require('../models/order.model');
+const { Cart } = require('../models/cart.model');
 
 // utils
 const { catchAsync } = require('../util/catchAsync');
@@ -22,10 +23,7 @@ exports.loginUser = catchAsync(async (req, res, next) => {
 
   // find user given an email and has status active
   const user = await User.findOne({
-    where: {
-      email,
-      status: 'active'
-    }
+    where: { email, status: 'active' }
   });
 
   // compare entered password vs hashed password
@@ -113,9 +111,7 @@ exports.getUsersProducts = catchAsync(async (req, res, next) => {
 exports.getAllOrderUser = catchAsync(async (req, res, next) => {
   const { currentUser } = req;
 
-  const order = await Order.findAll({
-    where: { userId: currentUser.id }
-  });
+  const orders = await Order.findAll({ where: { userId: currentUser.id } });
   res.status(200).json({
     status: 'success',
     data: { orders }
@@ -138,7 +134,7 @@ exports.getOrderUserById = catchAsync(async (req, res, next) => {
   });
 
   if (!order) {
-    return next(new AppError(404, 'No Order found that Id'));
+    return next(new AppError(404, 'No Order found with that Id'));
   }
 
   res.status(200).json({
